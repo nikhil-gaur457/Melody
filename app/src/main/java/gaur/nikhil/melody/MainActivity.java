@@ -68,5 +68,13 @@ public class MainActivity extends AppCompatActivity {
         return arrayList;
     }
 
-
+    void displaySongs() { // Method to display songs listView.
+        final ArrayList<File> mySongs = findSong(Environment.getExternalStorageDirectory());
+        items = new String[mySongs.size()];
+        for (int i = 0; i < mySongs.size(); i++) { // Add songs to items list.
+            items[i] = mySongs.get(i).getName().toString().replace(".mp3", "").replace(".wav", "");
+        }
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        listView.setAdapter(myAdapter);
+    }
 }
