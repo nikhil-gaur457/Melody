@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.os.Environment;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.karumi.dexter.Dexter;
@@ -54,15 +56,17 @@ public class MainActivity extends AppCompatActivity {
         File[] files = file.listFiles();
 
         // Check for file is mp3 file or a folder.
-        for (File singleFile: files) {
-            if (singleFile.isDirectory() && !singleFile.isHidden()) { // check file is single or in a directory.
-                arrayList.addAll(findSong(singleFile));
+        for (File singlefile: files) {
+            if (singlefile.isDirectory() && !singlefile.isHidden()) { // check file is single or in a directory.
+                arrayList.addAll(findSong(singlefile));
             } else { // check file is mp3 file or wav file.
-                if (singleFile.getName().endsWith(".mp3") || singleFile.getName().endsWith(".wav")) {
-                    arrayList.add(singleFile);
+                if (singlefile.getName().endsWith(".mp3") || singlefile.getName().endsWith(".wav")) {
+                    arrayList.add(singlefile);
                 }
             }
         }
         return arrayList;
     }
+
+
 }
