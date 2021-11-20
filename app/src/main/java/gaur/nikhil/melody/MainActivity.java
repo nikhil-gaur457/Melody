@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        runtimePermission();
 
+        // Initialise our listView.
+        listView = findViewById(R.id.listViewSong);
 
     }
 
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-
+                        displaySongs();
                     }
 
                     @Override
