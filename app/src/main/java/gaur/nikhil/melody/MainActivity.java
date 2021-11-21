@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        runtimePermission();
 
         // Initialise our listView.
         listView = findViewById(R.id.listViewSong);
 
+        runtimePermission();
     }
 
     public void runtimePermission() { // Method to give permission to storage.
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 }).check();
     }
 
-    public ArrayList<File> findSong(File file) { // Method to store songs in a list by file.
+    public ArrayList<File> findSong (File file)   { // Method to store songs in a list by file.
         ArrayList<File> arrayList = new ArrayList<>();
         File[] files = file.listFiles();
 
