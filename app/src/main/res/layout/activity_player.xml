@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_img"
+    android:background="@drawable/background_img_1"
     android:orientation="vertical"
     android:weightSum="10"
     tools:context=".PlayerActivity">
@@ -22,7 +22,7 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:padding="10dp"
             android:singleLine="true"
-            android:text="Song Name"
+            android:text="@string/song_name"
             android:textColor="#FFF"
             android:textSize="22sp"
             android:textAlignment="center"
@@ -58,7 +58,7 @@
                 android:layout_centerInParent="true"
                 android:layout_alignParentLeft="false"
                 android:layout_marginLeft="20dp"
-                android:text="0:10"
+                android:text="@string/_0_10"
                 android:textColor="#FFF"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
                 android:layout_centerInParent="true"
                 android:layout_alignParentRight="false"
                 android:layout_marginRight="20dp"
-                android:text="4:10"
+                android:text="@string/_4_10"
                 android:textColor="#FFF"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             <Button
                 android:id="@+id/playbtn"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/ic_play"
+                android:background="@drawable/ic_pause"
                 android:layout_width="70dp"
                 android:layout_height="70dp">
 
