@@ -33,7 +33,7 @@
             android:layout_toEndOf="@+id/imgsong"
             android:padding="6dp"
             android:textColor="#FFF"
-            android:text="Song Name"
+            android:text="@string/song_name"
             android:textSize="15sp"
             android:singleLine="true"
             android:marqueeRepeatLimit="marquee_forever"
