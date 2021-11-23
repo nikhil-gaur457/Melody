@@ -1,17 +1,18 @@
 package gaur.nikhil.melody;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -20,12 +21,8 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
-import java.security.Permission;
 import java.util.ArrayList;
-import java.util.Base64;
 
 public class MainActivity extends AppCompatActivity {
     ListView listView;
@@ -62,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
                 }).check();
     }
 
-    public ArrayList<File> findSong (File file)   { // Method to store songs in a list by file.
+    public ArrayList<File> findSong(File file) { // Method to store songs in a list by file.
         ArrayList<File> arrayList = new ArrayList<>();
         File[] files = file.listFiles();
 
         // Check for file is mp3 file or a folder.
-        for (File singlefile: files) {
+        for (File singlefile : files) {
             if (singlefile.isDirectory() && !singlefile.isHidden()) { // check file is single or in a directory.
                 arrayList.addAll(findSong(singlefile));
             } else { // check file is mp3 file or wav file.
@@ -83,13 +80,25 @@ public class MainActivity extends AppCompatActivity {
         final ArrayList<File> mySongs = findSong(Environment.getExternalStorageDirectory());
         items = new String[mySongs.size()];
         for (int i = 0; i < mySongs.size(); i++) { // Add songs to items list.
-            items[i] = mySongs.get(i).getName().toString().replace(".mp3", "");
+            items[i] = mySongs.get(i).getName().replace(".mp3", "");
         }
         /*ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(myAdapter);*/
 
         customAdapter customAdapter = new customAdapter();
         listView.setAdapter(customAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String songName = (String) listView.getItemAtPosition(i);
+                startActivity(new Intent(getApplicationContext(), PlayerActivity.class)
+                        .putExtra("songs", mySongs)
+                        .putExtra("songs", mySongs)
+                        .putExtra("songname", songName)
+                        .putExtra("pos", i));
+            }
+        });
     }
 
     class customAdapter extends BaseAdapter { // Custom Adapter.
