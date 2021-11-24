@@ -28,7 +28,7 @@
             android:textAlignment="center"
             android:textColor="#FFF"
             android:textSize="22sp"
-            android:textStyle="italic"></TextView>
+            android:textStyle="italic" />
 
         <ImageView
             android:id="@+id/imageview"
@@ -50,7 +50,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:layout_margin="20dp"
-                android:layout_marginBottom="40dp"></SeekBar>
+                android:layout_marginBottom="40dp" />
 
             <TextView
                 android:id="@+id/txtsstart"
@@ -62,7 +62,7 @@
                 android:layout_toLeftOf="@+id/seekbar"
                 android:text="@string/_0_10"
                 android:textColor="#FFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/txtsstop"
@@ -74,7 +74,7 @@
                 android:layout_toRightOf="@+id/seekbar"
                 android:text="@string/_4_10"
                 android:textColor="#FFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="14sp" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -103,7 +103,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/playbtn"
-                android:background="@drawable/ic_next"></Button>
+                android:background="@drawable/ic_next" />
 
             <Button
                 android:id="@+id/btnprev"
@@ -111,7 +111,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
                 android:layout_toLeftOf="@+id/playbtn"
-                android:background="@drawable/ic_prev"></Button>
+                android:background="@drawable/ic_prev" />
 
             <Button
                 android:id="@+id/btnff"
