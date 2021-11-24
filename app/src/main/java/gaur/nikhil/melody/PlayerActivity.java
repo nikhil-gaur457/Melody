@@ -86,6 +86,42 @@ public class PlayerActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // onClickListener method for next button.
+        btnnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                position = ((position+1)) % mySongs.size();
+                Uri u = Uri.parse(mySongs.get(position).toString());
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), u);
+                sname = mySongs.get(position).getName();
+                txtsname.setText(sname);
+                mediaPlayer.start();
+                btnplay.setBackgroundResource(R.drawable.ic_pause);
+                startAnimation(imageView);
+            }
+        });
+
+        // onClickListener method for previous button.
+        btnprev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                position = ((position-1)<0)?(mySongs.size()-1):(position-1);
+
+                Uri u = Uri.parse(mySongs.get(position).toString());
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), u);
+                sname = mySongs.get(position).getName();
+                txtsname.setText(sname);
+                mediaPlayer.start();
+                btnplay.setBackgroundResource(R.drawable.ic_pause);
+                startAnimation(imageView);
+            }
+        });
+
     }
 
     // Method to do our animations inside our player activity.
