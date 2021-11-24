@@ -1,9 +1,5 @@
 package gaur.nikhil.melody;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -19,23 +15,25 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.gauravk.audiovisualizer.visualizer.BarVisualizer;
 
 import java.io.File;
 import java.util.ArrayList;
 
 public class PlayerActivity extends AppCompatActivity {
+    public static final String EXTRA_NAME = "song_name";
+    static MediaPlayer mediaPlayer;
     // define variables which we used.
     Button btnplay, btnnext, btnprev, btnff, btnfr;
     TextView txtsname, txtsstart, txtsstop;
     SeekBar seekmusic;
     BarVisualizer visualizer;
     ImageView imageView;
-
     // Create a media player object.
     String sname;
-    public static final String EXTRA_NAME = "song_name";
-    static MediaPlayer mediaPlayer;
     int position;
     ArrayList<File> mySongs;
     Thread updateseekbar;
@@ -180,7 +178,7 @@ public class PlayerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
-                position = ((position+1)) % mySongs.size();
+                position = ((position + 1)) % mySongs.size();
                 Uri u = Uri.parse(mySongs.get(position).toString());
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), u);
                 sname = mySongs.get(position).getName();
@@ -210,7 +208,7 @@ public class PlayerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
-                position = ((position-1)<0)?(mySongs.size()-1):(position-1);
+                position = ((position - 1) < 0) ? (mySongs.size() - 1) : (position - 1);
 
                 Uri u = Uri.parse(mySongs.get(position).toString());
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), u);
@@ -259,7 +257,7 @@ public class PlayerActivity extends AppCompatActivity {
     public void startAnimation(View view) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotation", 0f, 360f);
         animator.setDuration(1000);
-        AnimatorSet animatorSet  = new AnimatorSet();
+        AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(animator);
         animatorSet.start();
     }
@@ -267,11 +265,11 @@ public class PlayerActivity extends AppCompatActivity {
     // time method.
     public String createTime(int duration) {
         String time = "";
-        int min = duration/1000/60;
-        int sec = duration/1000%60;
-        time += min+ ":";
+        int min = duration / 1000 / 60;
+        int sec = duration / 1000 % 60;
+        time += min + ":";
         if (sec < 10) {
-            time+="0";
+            time += "0";
         }
         time += sec;
         return time;
