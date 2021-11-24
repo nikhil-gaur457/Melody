@@ -1,10 +1,7 @@
 # Melody
 Melody is android application for offline music player
 
-<p align="center">
-  <img src="![music](https://user-images.githubusercontent.com/67824570/143303607-41b4833a-46e4-43a7-a7ed-0f635452763a.png)
-"/>
-</p>
+![music](https://user-images.githubusercontent.com/67824570/143303607-41b4833a-46e4-43a7-a7ed-0f635452763a.png)
 
 Melody is a mp3 music player application development using Android. The biggest 
 difference between the music player and existing applications is that it is completely 
