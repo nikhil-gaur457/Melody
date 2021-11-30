@@ -10,6 +10,9 @@ do the filtering in order to eliminate function that not practical or low cost-e
 Also, it will be keep improved based on user feedback.
 
 ![music](https://user-images.githubusercontent.com/67824570/143304969-e2dcfb52-341c-4c24-98b4-08ee1c8ed406.png)
+![Screenshot_20211125-214054241](https://user-images.githubusercontent.com/67824570/143981644-c6fc13c3-81ca-47ae-b6e3-7d4747dc6e9c.jpg)
+![Screenshot_20211125-214024360](https://user-images.githubusercontent.com/67824570/143981664-d60b7452-66bc-44fb-939b-7ec20057d342.jpg)
+
 
 
 
